@@ -1,0 +1,5 @@
+
+/* Added for card inline style removal */
+.starIcon {
+  color: #fbbf24;
+}

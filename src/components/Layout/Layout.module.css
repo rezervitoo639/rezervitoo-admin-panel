@@ -1,0 +1,243 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+/* Sidebar Styles - Using CSS Logical Properties for RTL support */
+.sidebar {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0; /* Replaces left: 0 for RTL support */
+  height: 100vh;
+  background-color: var(--bg-surface);
+  border-inline-end: 1px solid var(--border-main); /* Replaces border-right */
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  z-index: 100;
+  overflow-x: hidden;
+}
+
+.sidebarOpen {
+  width: 260px;
+}
+
+.sidebarClosed {
+  width: 70px;
+}
+
+.sidebarHeader {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  border-block-end: 1px solid var(--border-main); /* Replaces border-bottom */
+}
+
+.sidebarClosed .sidebarHeader {
+  justify-content: center;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.logoContainer:hover {
+  background-color: var(--bg-hover);
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.toggleBtn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.logoImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* Navigation */
+.nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.navItem:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.navItemActive {
+  background-color: var(--bg-active);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.navItemActive:hover {
+  background-color: var(--bg-active);
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  margin-inline-end: 0.75rem; /* Replaces margin-right for RTL support */
+  position: relative;
+}
+
+.sidebarClosed .navIcon {
+  margin-inline-end: 0;
+}
+
+/* Badge for unread notifications (small - for collapsed sidebar) */
+.badge {
+  position: absolute;
+  top: -6px;
+  inset-inline-end: -6px; /* Replaces right: -6px for RTL support */
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.navLabel {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* Badge for unread notifications (large - for expanded sidebar) */
+.badgeLarge {
+  margin-inline-start: auto; /* Replaces margin-left for RTL support */
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* Footer */
+.sidebarFooter {
+  padding: 1rem 0.75rem;
+  border-block-start: 1px solid var(--border-main); /* Replaces border-top */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.logoutBtn:hover {
+  background-color: var(--bg-danger);
+  color: white;
+}
+
+.sidebarClosed .logoutBtn {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+/* Main Content - Using CSS Logical Properties for RTL support */
+.main {
+  min-height: 100vh;
+  transition: margin-inline-start 0.3s ease; /* Replaces margin-left */
+  background-color: var(--bg-main);
+}
+
+.mainShifted {
+  margin-inline-start: 260px; /* Replaces margin-left for RTL support */
+}
+
+.mainExpanded {
+  margin-inline-start: 70px; /* Replaces margin-left for RTL support */
+}

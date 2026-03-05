@@ -1,0 +1,30 @@
+.circleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--bg-paper);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.circleButton:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.circleButton.active {
+  background: white;
+  border-color: currentColor;
+}
+
+.circleButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

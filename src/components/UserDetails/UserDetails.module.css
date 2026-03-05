@@ -1,0 +1,314 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.sectionHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.userHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-main);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userInfo h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.email {
+  margin: 0 0 0.75rem 0;
+  color: var(--text-secondary);
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.statusVerified,
+.statusUnverified,
+.statusActive,
+.statusInactive {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusVerified {
+  background: #d3f9d8;
+  color: #2b8a3e;
+}
+
+.statusUnverified {
+  background: #e7e7e7;
+  color: #868e96;
+}
+
+.statusActive {
+  background: #d0ebff;
+  color: #1971c2;
+}
+
+.statusInactive {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.detailIcon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.detailItem > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.value {
+  font-size: 1rem;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+.bookingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bookingCard {
+  background: var(--bg-main);
+  border: 1px solid var(--border-main);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.bookingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-main);
+}
+
+.bookingId {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.bookingStatus {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusPENDING {
+  background: #fff3bf;
+  color: #f08c00;
+}
+
+.statusCONFIRMED {
+  background: #d0ebff;
+  color: #1971c2;
+}
+
+.statusCANCELLED {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+.statusCOMPLETED {
+  background: #d3f9d8;
+  color: #2b8a3e;
+}
+
+.bookingDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.bookingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.listingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.listingCard {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-main);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.listingCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.statusPending {
+  background: #fff3bf;
+  color: #f08c00;
+}
+
+.statusAccepted {
+  background: #d3f9d8;
+  color: #2b8a3e;
+}
+
+.statusRejected {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-main) 20%,
+    var(--border-main) 80%,
+    transparent
+  );
+}
+
+/* Added for user details inline style replacement */
+.ratingContainer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.starIcon {
+  color: #fbbf24;
+}
+
+.ratingValue {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.reviewCount {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-main);
+}
+
+.banButton {
+  background: #ffe3e3;
+  color: #c92a2a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.banButton:hover {
+  background: #ffc9c9;
+  transform: translateY(-1px);
+}
+
+.banButton:active {
+  transform: translateY(0);
+}
+
+.banButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,215 @@
+/* 
+ * ListingForm Component Styles
+ * Demonstrates CSS Logical Properties for RTL support
+ * 
+ * Key principles:
+ * - Use inline-start/inline-end instead of left/right
+ * - Use block-start/block-end instead of top/bottom (for consistency)
+ * - Use 'gap' for flex/grid spacing (RTL-friendly)
+ * - Avoid transform: translateX() without RTL consideration
+ */
+
+.form {
+  background-color: var(--bg-surface);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-block-end: 1.5rem; /* Replaces margin-bottom */
+}
+
+/* Form Group - Field container */
+.formGroup {
+  margin-block-end: 1.25rem; /* Replaces margin-bottom */
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-block-end: 0.5rem; /* Replaces margin-bottom */
+}
+
+.required {
+  color: var(--color-danger);
+  margin-inline-start: 0.25rem; /* Replaces margin-left - creates space after label */
+}
+
+/* Input Styles - Using logical properties */
+.input,
+.textarea {
+  width: 100%;
+  padding-block: 0.625rem; /* Replaces padding-top/bottom */
+  padding-inline: 0.875rem; /* Replaces padding-left/right */
+  font-size: 0.9375rem;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-main);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.inputError {
+  border-color: var(--color-danger);
+}
+
+.inputError:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Input with addon (e.g., currency symbol) */
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputGroup .input {
+  /* Make room for addon on the end side */
+  padding-inline-end: 3rem; /* Replaces padding-right */
+}
+
+.inputAddon {
+  position: absolute;
+  inset-inline-end: 1rem; /* Replaces right: 1rem - positions at end */
+  color: var(--text-secondary);
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* Error Message */
+.errorText {
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  margin-block-start: 0.375rem; /* Replaces margin-top */
+}
+
+/* Form Row - For inline fields (e.g., City + Country) */
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem; /* gap is RTL-friendly, no need for logical properties */
+  margin-block-end: 1.25rem; /* Replaces margin-bottom */
+}
+
+/* Form Actions - Buttons at bottom */
+.formActions {
+  display: flex;
+  justify-content: flex-end; /* Buttons on the end (right in LTR, left in RTL) */
+  gap: 0.75rem; /* gap is RTL-friendly */
+  margin-block-start: 2rem; /* Replaces margin-top */
+  padding-block-start: 1.5rem; /* Replaces padding-top */
+  border-block-start: 1px solid var(--border-main); /* Replaces border-top */
+}
+
+/* Button Styles - Using logical properties */
+.btnPrimary,
+.btnSecondary {
+  padding-block: 0.625rem; /* Replaces padding-top/bottom */
+  padding-inline: 1.5rem; /* Replaces padding-left/right */
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btnPrimary:active {
+  transform: translateY(0);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-main);
+}
+
+.btnSecondary:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+  border-color: var(--border-hover);
+}
+
+/* Responsive - Stack form actions on mobile */
+@media (max-width: 640px) {
+  .formActions {
+    flex-direction: column-reverse; /* Cancel button on top in mobile */
+    gap: 0.5rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}
+
+/*
+ * KEY TAKEAWAYS FOR CSS LOGICAL PROPERTIES:
+ * 
+ * 1. Spacing:
+ *    - margin-left → margin-inline-start
+ *    - margin-right → margin-inline-end
+ *    - padding-left → padding-inline-start
+ *    - padding-right → padding-inline-end
+ * 
+ * 2. Borders:
+ *    - border-left → border-inline-start
+ *    - border-right → border-inline-end
+ *    - border-top → border-block-start
+ *    - border-bottom → border-block-end
+ * 
+ * 3. Positioning:
+ *    - left: 0 → inset-inline-start: 0
+ *    - right: 0 → inset-inline-end: 0
+ *    - top: 0 → inset-block-start: 0
+ *    - bottom: 0 → inset-block-end: 0
+ * 
+ * 4. Text Alignment:
+ *    - text-align: left → text-align: start
+ *    - text-align: right → text-align: end
+ * 
+ * 5. Flexbox/Grid:
+ *    - Use 'gap' instead of margin for spacing (automatically RTL-friendly)
+ *    - Use 'justify-content: flex-end' (becomes flex-start in RTL automatically)
+ */

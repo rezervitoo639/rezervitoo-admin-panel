@@ -1,0 +1,169 @@
+.themeSelection {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.themeCard {
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+}
+
+.themeCard:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.themeCard.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light, #e3f2fd);
+}
+
+.themePreview {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.themePreviewLight {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.themePreviewDark {
+  background: #1a1a1a;
+  border: 1px solid #404040;
+}
+
+.windowHeader {
+  height: 20%;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 4px;
+}
+
+.lightHeader {
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+}
+
+.darkHeader {
+  background: #2d2d2d;
+  border-color: #404040;
+}
+
+.windowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #ff5f57;
+}
+.dotYellow {
+  background: #febc2e;
+}
+.dotGreen {
+  background: #28c840;
+}
+
+.windowBody {
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.windowSidebar {
+  width: 25%;
+  height: 60px;
+  border-radius: 4px;
+}
+
+.lightSidebar {
+  background: #f0f0f0;
+}
+.darkSidebar {
+  background: #333333;
+}
+
+.windowContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contentLine {
+  height: 8px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.lightLine {
+  background: #f0f0f0;
+}
+.darkLine {
+  background: #333333;
+}
+
+.themeLabel {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.languageGrid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.languageButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 100px;
+}
+
+.languageButton:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.languageButton.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light, #e3f2fd);
+}
+
+.flag {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.languageName {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}

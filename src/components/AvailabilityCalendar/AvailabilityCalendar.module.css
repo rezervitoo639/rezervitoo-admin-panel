@@ -1,0 +1,247 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  background: var(--bg-main);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: var(--text-main);
+}
+
+.calendar {
+  width: 100%;
+}
+
+.monthNavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.navButton {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-main);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--color-primary);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.monthYear {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.weekDay {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.emptyDay {
+  aspect-ratio: 1;
+}
+
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid var(--border-main);
+  background: var(--bg-main);
+  cursor: default;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.dayNumber {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.day.past {
+  background: var(--bg-secondary);
+  opacity: 0.4;
+}
+
+.day.past .dayNumber {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.day.blocked {
+  background: #f8d7da;
+  border-color: #dc3545;
+}
+
+.day.blocked .dayNumber {
+  color: #721c24;
+  font-weight: 600;
+}
+
+.day.booked {
+  background: #fff3cd;
+  border-color: #ffc107;
+}
+
+.day.booked .dayNumber {
+  color: #856404;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-main);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.legendIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--border-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.legendIcon.available {
+  background: var(--bg-main);
+}
+
+.legendIcon.booked {
+  background: #fff3cd;
+  border-color: #ffc107;
+}
+
+.legendIcon.blocked {
+  background: #f8d7da;
+  border-color: #dc3545;
+}
+
+.legendIcon.past {
+  background: var(--bg-secondary);
+  opacity: 0.4;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .day.blocked {
+  background: #721c24;
+  border-color: #dc3545;
+}
+
+[data-theme="dark"] .day.blocked .dayNumber {
+  color: #f8d7da;
+}
+
+[data-theme="dark"] .day.booked {
+  background: #856404;
+  border-color: #ffc107;
+}
+
+[data-theme="dark"] .day.booked .dayNumber {
+  color: #fff3cd;
+}
+
+[data-theme="dark"] .legendIcon.blocked {
+  background: #721c24;
+}
+
+[data-theme="dark"] .legendIcon.booked {
+  background: #856404;
+}

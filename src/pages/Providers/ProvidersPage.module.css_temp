@@ -1,0 +1,16 @@
+
+/* Added for table inline style removal */
+.clickableTitle {
+  cursor: pointer;
+}
+
+.ratingCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.emptyText {
+  color: var(--text-secondary);
+}

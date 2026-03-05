@@ -1,0 +1,94 @@
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-paper);
+  overflow: hidden;
+}
+
+.card.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card.clickable:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-surface);
+}
+
+.id {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-main);
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusPending {
+  background: #fff3bf;
+  color: #e67700;
+}
+
+.statusResolved {
+  background: #d3f9d8;
+  color: #2b8a3e;
+}
+
+.statusDismissed {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100px;
+}
+
+.reason {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.reporter {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.date {
+  white-space: nowrap;
+}

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  background: #e7f5ff;
+  color: #1971c2;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: #d0ebff;
+}
+
+.actionButtonDelete {
+  background: #ffe0e0;
+  color: #c92a2a;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.actionButtonDelete:hover {
+  background: #ffc9c9;
+}
