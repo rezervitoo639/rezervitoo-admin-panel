@@ -30,8 +30,7 @@ export function useNotificationWebSocket(
 
   const wsUrl =
     options.wsUrl ||
-    import.meta.env.VITE_WS_URL ||
-    "ws://localhost:8000/ws/admin/notifications/";
+    `${import.meta.env.VITE_WS_BASE_URL || "ws://localhost:8000"}/ws/admin/notifications/`;
 
   useWebSocket({
     url: wsUrl,

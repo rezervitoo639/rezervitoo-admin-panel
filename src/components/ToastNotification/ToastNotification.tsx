@@ -19,9 +19,7 @@ export default function ToastNotification({
 }: ToastNotificationProps) {
   const [toasts, setToasts] = useState<NotificationToast[]>([]);
 
-  const wsUrl =
-    import.meta.env.VITE_WS_URL ||
-    "ws://localhost:8000/ws/admin/notifications/";
+  const wsUrl = `${import.meta.env.VITE_WS_BASE_URL || "ws://localhost:8000"}/ws/admin/notifications/`;
 
   useWebSocket({
     url: wsUrl,

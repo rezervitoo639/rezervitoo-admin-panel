@@ -28,9 +28,7 @@ export function LiveUpdateProvider({
 }) {
   const queryClient = useQueryClient();
 
-  const wsUrl =
-    import.meta.env.VITE_WS_URL ||
-    "ws://localhost:8000/ws/admin/notifications/";
+  const wsUrl = `${import.meta.env.VITE_WS_BASE_URL || "ws://localhost:8000"}/ws/admin/notifications/`;
 
   const handleWebSocketMessage = useCallback(
     (message: WebSocketMessage) => {

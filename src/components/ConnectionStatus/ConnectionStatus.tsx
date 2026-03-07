@@ -11,9 +11,7 @@ import styles from "./ConnectionStatus.module.css";
  * - Shows tooltip with status
  */
 export default function ConnectionStatus() {
-  const wsUrl =
-    import.meta.env.VITE_WS_URL ||
-    "ws://localhost:8000/ws/admin/notifications/";
+  const wsUrl = `${import.meta.env.VITE_WS_BASE_URL || "ws://localhost:8000"}/ws/admin/notifications/`;
 
   const { isConnected } = useWebSocket({
     url: wsUrl,

@@ -1,5 +1,6 @@
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import logoUrl from "../../assets/logo/logo.png";
 import { useTranslation } from "react-i18next";
 import { useSidebar } from "../../hooks/useSidebar";
 import { useAuth } from "../../hooks/useAuth";
@@ -127,7 +128,7 @@ export default function Layout() {
             aria-label="Toggle sidebar"
           >
             <img
-              src="/src/assets/logo/logo.png"
+              src={logoUrl}
               alt="Rezervitoo"
               className={styles.logoImage}
             />

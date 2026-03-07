@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import englandFlag from "../../assets/languages/England.png";
+import franceFlag from "../../assets/languages/France.png";
+import algeriaFlag from "../../assets/languages/Algeria.png";
 import { useTranslation } from "react-i18next";
 import {
   IconUser,
@@ -573,7 +576,7 @@ export default function SettingsPage() {
                     onClick={() => handleLanguageChange("en")}
                   >
                     <img
-                      src="/src/assets/languages/England.png"
+                      src={englandFlag}
                       alt="English"
                       className={styles.flagImage}
                     />
@@ -585,7 +588,7 @@ export default function SettingsPage() {
                     onClick={() => handleLanguageChange("fr")}
                   >
                     <img
-                      src="/src/assets/languages/France.png"
+                      src={franceFlag}
                       alt="Français"
                       className={styles.flagImage}
                     />
@@ -597,7 +600,7 @@ export default function SettingsPage() {
                     onClick={() => handleLanguageChange("ar")}
                   >
                     <img
-                      src="/src/assets/languages/Algeria.png"
+                      src={algeriaFlag}
                       alt="العربية"
                       className={styles.flagImage}
                     />
