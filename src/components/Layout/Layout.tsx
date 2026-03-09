@@ -127,11 +127,7 @@ export default function Layout() {
             tabIndex={0}
             aria-label="Toggle sidebar"
           >
-            <img
-              src={logoUrl}
-              alt="Rezervitoo"
-              className={styles.logoImage}
-            />
+            <img src={logoUrl} alt="Rezervitoo" className={styles.logoImage} />
             {sidebarOpen && <span className={styles.logoText}>Rezervitoo</span>}
           </div>
           {sidebarOpen && (

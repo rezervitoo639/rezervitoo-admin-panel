@@ -22,6 +22,7 @@ export const authApi = {
       message: string;
     }>("/users/login/google/", {
       id_token: idToken,
+      account_type: "ADMIN", // Explicitly send account type to avoid legacy fallback
       is_admin_panel: true, // CRITICAL: Mark this as admin panel login
     });
 
