@@ -25,7 +25,7 @@ export default function ProvidersListFeature({
     search: filters.search,
     account_type: "PROVIDER",
     role: (filters.role as any) || undefined,
-    verification_status: "VERIFIED",
+    verification_status: (filters.status as any) || undefined,
     ordering: filters.ordering,
     page: filters.page,
     page_size: filters.pageSize,

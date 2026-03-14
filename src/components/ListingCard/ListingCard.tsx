@@ -1,4 +1,5 @@
 import { IconStarFilled } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
 import type { Listing } from "../../types/listing.types";
 import styles from "./ListingCard.module.css";
 
@@ -8,6 +9,8 @@ interface ListingCardProps {
 }
 
 export default function ListingCard({ listing, onClick }: ListingCardProps) {
+  const { t } = useTranslation();
+
   const getStatusClass = () => {
     const statusMap: Record<string, string> = {
       APPROVED: styles.statusApproved,
@@ -28,7 +31,7 @@ export default function ListingCard({ listing, onClick }: ListingCardProps) {
           alt={listing.title}
         />
         <span className={`${styles.status} ${getStatusClass()}`}>
-          {listing.approval_status}
+          {({ APPROVED: t("listings.approved"), PENDING: t("common.pending"), REJECTED: t("common.rejected") } as Record<string, string>)[listing.approval_status] ?? listing.approval_status}
         </span>
       </div>
       <div className={styles.content}>

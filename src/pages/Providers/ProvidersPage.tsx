@@ -81,11 +81,11 @@ export default function ProvidersPage() {
           value={filters.status}
           onChange={(e) => setFilter("status", e.target.value)}
         >
-          <option value="">All Statuses</option>
-          <option value="VERIFIED">Verified</option>
-          <option value="PENDING">Pending</option>
-          <option value="UNVERIFIED">Unverified</option>
-          <option value="REJECTED">Rejected</option>
+          <option value="">{t("common.allStatuses")}</option>
+          <option value="VERIFIED">{t("common.verified")}</option>
+          <option value="PENDING">{t("common.pending")}</option>
+          <option value="UNVERIFIED">{t("common.unverified")}</option>
+          <option value="REJECTED">{t("common.rejected")}</option>
         </select>
         <Spacer />
         <IconButton

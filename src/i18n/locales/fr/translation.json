@@ -298,6 +298,7 @@
     "provider": "Fournisseur",
     "role": "Rôle",
     "totalProviders": "Total des prestataires",
+    "totalListings": "Total des annonces",
     "rating": "Note",
     "joinDate": "Date d'inscription",
     "noProvidersFound": "Aucun fournisseur trouvé correspondant à vos filtres"

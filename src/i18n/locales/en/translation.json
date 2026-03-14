@@ -271,6 +271,7 @@
     "provider": "Provider",
     "role": "Role",
     "totalProviders": "Total Providers",
+    "totalListings": "Total Listings",
     "rating": "Rating",
     "joinDate": "Join Date",
     "noProvidersFound": "No providers found matching your filters"

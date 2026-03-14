@@ -3,6 +3,7 @@ import { ProtectedRoute, PublicRoute } from "./ProtectedRoute.tsx";
 import { LanguageRedirect } from "../components/LanguageRedirect/index.tsx";
 import LoginPage from "../pages/Login/LoginPage.tsx";
 import VerifyEmail from "../pages/VerifyEmail/VerifyEmail.tsx";
+import ResetPasswordPage from "../pages/ResetPassword/ResetPasswordPage.tsx";
 import DashboardPage from "../pages/Dashboard/DashboardPage.tsx";
 import UserManagementPage from "../pages/Users/UserManagementPage.tsx";
 import ProvidersPage from "../pages/Providers/ProvidersPage.tsx";
@@ -26,6 +27,7 @@ export default function AppRoutes() {
           <Route element={<PublicRoute />}>
             <Route path="login" element={<LoginPage />} />
             <Route path="verify-email" element={<VerifyEmail />} />
+            <Route path="password-reset" element={<ResetPasswordPage />} />
           </Route>
 
           {/* Protected routes with Layout */}

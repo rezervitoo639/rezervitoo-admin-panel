@@ -25,6 +25,7 @@ export function useVerifyUser() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["users"] });
       queryClient.invalidateQueries({ queryKey: ["stats"] });
+      queryClient.invalidateQueries({ queryKey: ["listings"] });
     },
   });
 }
@@ -37,6 +38,7 @@ export function useRejectUser() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["users"] });
       queryClient.invalidateQueries({ queryKey: ["stats"] });
+      queryClient.invalidateQueries({ queryKey: ["listings"] });
     },
   });
 }

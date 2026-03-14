@@ -28,7 +28,7 @@ export default function ReportCard({ report, onClick }: ReportCardProps) {
           {t("reports.id")} #{report.id}
         </span>
         <span className={`${styles.status} ${getStatusClass()}`}>
-          {report.status}
+          {({ PENDING: t("common.pending"), RESOLVED: t("common.resolved"), DISMISSED: t("common.dismissed") } as Record<string, string>)[report.status] ?? report.status}
         </span>
       </div>
       <div className={styles.content}>
