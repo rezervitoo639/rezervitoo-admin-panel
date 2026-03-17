@@ -5,6 +5,7 @@ export interface SupportContact {
   whatsapp_phone: string;
   facebook: string;
   instagram: string;
+  tiktok: string;
   linkedin: string;
   updated_at: string;
 }

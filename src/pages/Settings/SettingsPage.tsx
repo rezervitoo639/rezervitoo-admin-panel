@@ -12,6 +12,7 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
+  IconBrandTiktok,
   IconBrandWhatsapp,
   IconEye,
   IconEyeOff,
@@ -65,6 +66,7 @@ export default function SettingsPage() {
   const [whatsappPhone, setWhatsappPhone] = useState("");
   const [facebook, setFacebook] = useState("");
   const [instagram, setInstagram] = useState("");
+  const [tiktok, setTiktok] = useState("");
   const [linkedin, setLinkedin] = useState("");
 
   // Fetch support contact info
@@ -79,6 +81,7 @@ export default function SettingsPage() {
       setWhatsappPhone(supportContact.whatsapp_phone || "");
       setFacebook(supportContact.facebook || "");
       setInstagram(supportContact.instagram || "");
+      setTiktok(supportContact.tiktok || "");
       setLinkedin(supportContact.linkedin || "");
     }
   }, [supportContact]);
@@ -187,6 +190,7 @@ export default function SettingsPage() {
       whatsapp_phone: digitsOnly || null,
       facebook: facebook || null,
       instagram: instagram || null,
+      tiktok: tiktok || null,
       linkedin: linkedin || null,
     });
   };
@@ -430,6 +434,25 @@ export default function SettingsPage() {
                         placeholder="https://instagram.com/rizervitoo"
                         value={instagram}
                         onChange={(e) => setInstagram(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label}>
+                      {t("settings.support.tiktok")}
+                    </label>
+                    <div className={styles.inputWithIcon}>
+                      <IconBrandTiktok
+                        size={20}
+                        className={styles.inputIcon}
+                      />
+                      <input
+                        type="url"
+                        className={styles.input}
+                        placeholder="https://tiktok.com/@rizervitoo"
+                        value={tiktok}
+                        onChange={(e) => setTiktok(e.target.value)}
                       />
                     </div>
                   </div>

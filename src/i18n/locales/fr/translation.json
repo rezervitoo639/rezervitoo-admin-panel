@@ -404,6 +404,7 @@
       "facebook": "Facebook",
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
+      "tiktok": "TikTok",
       "description": "Ces informations seront affichées aux utilisateurs sur l'application mobile",
       "whatsappHelper": "Doit comporter exactement 10 chiffres (sans espaces ni caractères spéciaux)",
       "save": "Enregistrer le contact support"
