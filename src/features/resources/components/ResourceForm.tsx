@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { IconX, IconCheck } from "@tabler/icons-react";
 import type {
   Amenity,
@@ -25,8 +26,11 @@ export default function ResourceForm({
   onCancel,
   isSubmitting,
 }: ResourceFormProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
-    name: editingItem?.name || "",
+    name_en: editingItem?.name_en || "",
+    name_ar: editingItem?.name_ar || "",
+    name_fr: editingItem?.name_fr || "",
     icon: null as File | null,
   });
 
@@ -34,7 +38,9 @@ export default function ResourceForm({
     e.preventDefault();
 
     const data = new FormData();
-    data.append("name", formData.name);
+    data.append("name_en", formData.name_en);
+    data.append("name_ar", formData.name_ar);
+    data.append("name_fr", formData.name_fr);
     if (formData.icon) {
       data.append("icon", formData.icon);
     }
@@ -45,23 +51,52 @@ export default function ResourceForm({
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.formGroup}>
-        <label htmlFor="name" className={styles.label}>
-          Name *
+        <label htmlFor="name_en" className={styles.label}>
+          {t("resources.form.nameEn")} *
         </label>
         <input
-          id="name"
+          id="name_en"
           type="text"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          value={formData.name_en}
+          onChange={(e) => setFormData({ ...formData, name_en: e.target.value })}
           className={styles.input}
           required
-          placeholder={`Enter ${resourceLabel.toLowerCase()} name`}
+          placeholder={t("resources.form.nameEnPlaceholder")}
+        />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="name_ar" className={styles.label}>
+          {t("resources.form.nameAr")}
+        </label>
+        <input
+          id="name_ar"
+          type="text"
+          value={formData.name_ar}
+          onChange={(e) => setFormData({ ...formData, name_ar: e.target.value })}
+          className={styles.input}
+          placeholder={t("resources.form.nameArPlaceholder")}
+          dir="rtl"
+        />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="name_fr" className={styles.label}>
+          {t("resources.form.nameFr")}
+        </label>
+        <input
+          id="name_fr"
+          type="text"
+          value={formData.name_fr}
+          onChange={(e) => setFormData({ ...formData, name_fr: e.target.value })}
+          className={styles.input}
+          placeholder={t("resources.form.nameFrPlaceholder")}
         />
       </div>
 
       <div className={styles.formGroup}>
         <label htmlFor="icon" className={styles.label}>
-          Icon (Optional)
+          {t("resources.form.icon")}
         </label>
         <input
           id="icon"
@@ -74,7 +109,7 @@ export default function ResourceForm({
         />
         {editingItem?.icon && !formData.icon && (
           <div className={styles.currentIcon}>
-            <p>Current icon:</p>
+            <p>{t("resources.form.currentIcon")}</p>
             <img src={editingItem.icon} alt="Current" />
           </div>
         )}
@@ -87,7 +122,7 @@ export default function ResourceForm({
           className={styles.cancelButton}
         >
           <IconX size={18} />
-          Cancel
+          {t("common.cancel")}
         </button>
         <button
           type="submit"
@@ -95,7 +130,7 @@ export default function ResourceForm({
           disabled={isSubmitting}
         >
           <IconCheck size={18} />
-          {editingItem ? "Update" : "Create"}
+          {editingItem ? t("common.update") : t("common.create")}
         </button>
       </div>
     </form>

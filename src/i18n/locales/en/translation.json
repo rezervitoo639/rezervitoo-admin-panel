@@ -347,7 +347,33 @@
       "nearby": "Nearby",
       "beds": "Bed Types"
     },
-    "addResource": "Add Resource"
+    "addResource": "Add Resource",
+    "labels": {
+      "amenity": "Amenity",
+      "restriction": "Restriction",
+      "nearby": "Nearby Location",
+      "bedType": "Bed Type"
+    },
+    "form": {
+      "nameEn": "Name (English)",
+      "nameAr": "Name (Arabic)",
+      "nameFr": "Name (French)",
+      "nameEnPlaceholder": "Enter name in English",
+      "nameArPlaceholder": "Enter name in Arabic",
+      "nameFrPlaceholder": "Enter name in French",
+      "icon": "Icon (Optional)",
+      "currentIcon": "Current icon:",
+      "editTitle": "Edit {{label}}",
+      "addTitle": "Add {{label}}",
+      "noItems": "No {{type}} found. Create one to get started.",
+      "deleteConfirm": "Are you sure you want to delete \"{{name}}\"?",
+      "updateSuccess": "Updated successfully",
+      "updateError": "Failed to update",
+      "createSuccess": "Created successfully",
+      "createError": "Failed to create",
+      "deleteSuccess": "Deleted successfully",
+      "deleteError": "Failed to delete"
+    }
   },
   "settings": {
     "pageTitle": "Settings",

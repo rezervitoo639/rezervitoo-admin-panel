@@ -379,7 +379,33 @@
       "nearby": "الأماكن القريبة",
       "beds": "أنواع الأسرّة"
     },
-    "addResource": "إضافة مورد"
+    "addResource": "إضافة مورد",
+    "labels": {
+      "amenity": "مرفق",
+      "restriction": "مانع",
+      "nearby": "موقع قريب",
+      "bedType": "نوع السرير"
+    },
+    "form": {
+      "nameEn": "الاسم (إنجليزي)",
+      "nameAr": "الاسم (عربي)",
+      "nameFr": "الاسم (فرنسي)",
+      "nameEnPlaceholder": "أدخل الاسم بالإنجليزية",
+      "nameArPlaceholder": "أدخل الاسم بالعربية",
+      "nameFrPlaceholder": "أدخل الاسم بالفرنسية",
+      "icon": "الأيقونة (اختياري)",
+      "currentIcon": "الأيقونة الحالية:",
+      "editTitle": "تعديل {{label}}",
+      "addTitle": "إضافة {{label}}",
+      "noItems": "لا توجد {{type}}. أنشئ واحداً للبدء.",
+      "deleteConfirm": "هل أنت متأكد أنك تريد حذف \"{{name}}\"؟",
+      "updateSuccess": "تم التحديث بنجاح",
+      "updateError": "فشل التحديث",
+      "createSuccess": "تم الإنشاء بنجاح",
+      "createError": "فشل الإنشاء",
+      "deleteSuccess": "تم الحذف بنجاح",
+      "deleteError": "فشل الحذف"
+    }
   },
   "settings": {
     "pageTitle": "الإعدادات",

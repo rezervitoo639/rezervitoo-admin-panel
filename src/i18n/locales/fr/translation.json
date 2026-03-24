@@ -373,7 +373,33 @@
       "nearby": "À proximité",
       "beds": "Types de lits"
     },
-    "addResource": "Ajouter une ressource"
+    "addResource": "Ajouter une ressource",
+    "labels": {
+      "amenity": "Équipement",
+      "restriction": "Restriction",
+      "nearby": "Lieu à proximité",
+      "bedType": "Type de lit"
+    },
+    "form": {
+      "nameEn": "Nom (Anglais)",
+      "nameAr": "Nom (Arabe)",
+      "nameFr": "Nom (Français)",
+      "nameEnPlaceholder": "Entrer le nom en anglais",
+      "nameArPlaceholder": "Entrer le nom en arabe",
+      "nameFrPlaceholder": "Entrer le nom en français",
+      "icon": "Icône (Optionnel)",
+      "currentIcon": "Icône actuelle :",
+      "editTitle": "Modifier {{label}}",
+      "addTitle": "Ajouter {{label}}",
+      "noItems": "Aucun {{type}} trouvé. Créez-en un pour commencer.",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer \"{{name}}\" ?",
+      "updateSuccess": "Mis à jour avec succès",
+      "updateError": "Échec de la mise à jour",
+      "createSuccess": "Créé avec succès",
+      "createError": "Échec de la création",
+      "deleteSuccess": "Supprimé avec succès",
+      "deleteError": "Échec de la suppression"
+    }
   },
   "settings": {
     "pageTitle": "Paramètres",

@@ -1,4 +1,5 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
+import { useTranslation } from "react-i18next";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import Loader from "../../../components/Loader/Loader";
 import Modal from "../../../components/Modal/Modal";
@@ -33,6 +34,7 @@ const ResourcesListFeature = forwardRef<
   ResourcesListRef,
   ResourcesListFeatureProps
 >(({ resourceType }, ref) => {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [editingItem, setEditingItem] = useState<Resource | null>(null);
 
@@ -48,13 +50,13 @@ const ResourcesListFeature = forwardRef<
   }));
 
   const getResourceLabel = () => {
-    const labels: Record<ResourceType, string> = {
-      amenities: "Amenity",
-      restrictions: "Restriction",
-      nearby: "Nearby Location",
-      beds: "Bed Type",
+    const keys: Record<ResourceType, string> = {
+      amenities: "resources.labels.amenity",
+      restrictions: "resources.labels.restriction",
+      nearby: "resources.labels.nearby",
+      beds: "resources.labels.bedType",
     };
-    return labels[resourceType];
+    return t(keys[resourceType]);
   };
 
   const handleOpenModal = (item?: Resource) => {
@@ -74,16 +76,16 @@ const ResourcesListFeature = forwardRef<
         {
           onSuccess: () => {
             notifications.show({
-              title: "Updated Successfully",
-              message: `${getResourceLabel()} has been updated.`,
+              title: t("common.success"),
+              message: t("resources.form.updateSuccess"),
               color: "green",
             });
             handleCloseModal();
           },
           onError: () => {
             notifications.show({
-              title: "Error",
-              message: `Failed to update ${getResourceLabel().toLowerCase()}.`,
+              title: t("common.error"),
+              message: t("resources.form.updateError"),
               color: "red",
             });
           },
@@ -93,16 +95,16 @@ const ResourcesListFeature = forwardRef<
       createMutation.mutate(data, {
         onSuccess: () => {
           notifications.show({
-            title: "Created Successfully",
-            message: `${getResourceLabel()} has been created.`,
+            title: t("common.success"),
+            message: t("resources.form.createSuccess"),
             color: "green",
           });
           handleCloseModal();
         },
         onError: () => {
           notifications.show({
-            title: "Error",
-            message: `Failed to create ${getResourceLabel().toLowerCase()}.`,
+            title: t("common.error"),
+            message: t("resources.form.createError"),
             color: "red",
           });
         },
@@ -111,19 +113,19 @@ const ResourcesListFeature = forwardRef<
   };
 
   const handleDelete = (id: number, name: string) => {
-    if (confirm(`Are you sure you want to delete "${name}"?`)) {
+    if (confirm(t("resources.form.deleteConfirm", { name }))) {
       deleteMutation.mutate(id, {
         onSuccess: () => {
           notifications.show({
-            title: "Deleted Successfully",
-            message: `${getResourceLabel()} has been deleted.`,
+            title: t("common.success"),
+            message: t("resources.form.deleteSuccess"),
             color: "orange",
           });
         },
         onError: () => {
           notifications.show({
-            title: "Error",
-            message: `Failed to delete ${getResourceLabel().toLowerCase()}.`,
+            title: t("common.error"),
+            message: t("resources.form.deleteError"),
             color: "red",
           });
         },
@@ -137,7 +139,7 @@ const ResourcesListFeature = forwardRef<
     <>
       {resources.length === 0 ? (
         <div className={styles.empty}>
-          <p>No {resourceType} found. Create one to get started.</p>
+          <p>{t("resources.form.noItems", { type: t(`resources.tabs.${resourceType}`) })}</p>
         </div>
       ) : (
         <div className={styles.grid}>
@@ -146,11 +148,11 @@ const ResourcesListFeature = forwardRef<
               <div className={styles.cardContent}>
                 {item.icon && (
                   <div className={styles.iconPreview}>
-                    <img src={item.icon} alt={item.name} />
+                    <img src={item.icon} alt={item.name_en || item.name} />
                   </div>
                 )}
                 <div className={styles.cardInfo}>
-                  <h3 className={styles.cardTitle}>{item.name}</h3>
+                  <h3 className={styles.cardTitle}>{item.name_en || item.name}</h3>
                   <p className="entity-id">ID: {item.id}</p>
                 </div>
               </div>
@@ -164,7 +166,7 @@ const ResourcesListFeature = forwardRef<
                 </button>
                 <button
                   className={styles.deleteButton}
-                  onClick={() => handleDelete(item.id, item.name)}
+                  onClick={() => handleDelete(item.id, item.name_en || item.name)}
                   title="Delete"
                 >
                   <IconTrash size={18} />
@@ -180,8 +182,8 @@ const ResourcesListFeature = forwardRef<
         onClose={handleCloseModal}
         title={
           editingItem
-            ? `Edit ${getResourceLabel()}`
-            : `Add ${getResourceLabel()}`
+            ? t("resources.form.editTitle", { label: getResourceLabel() })
+            : t("resources.form.addTitle", { label: getResourceLabel() })
         }
       >
         <ResourceForm
