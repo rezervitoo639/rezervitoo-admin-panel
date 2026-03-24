@@ -1,11 +1,13 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { resourcesApi } from "../../../api/resources.api";
 
 type ResourceType = "amenities" | "restrictions" | "nearby" | "beds";
 
 export function useResources(type: ResourceType) {
+  const { i18n } = useTranslation();
   return useQuery({
-    queryKey: [type],
+    queryKey: [type, i18n.language],
     queryFn: () => resourcesApi[type].list(),
   });
 }

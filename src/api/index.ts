@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import type { InternalAxiosRequestConfig } from "axios";
+import i18n from "../i18n/config";
 
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1";
@@ -23,6 +24,12 @@ apiClient.interceptors.request.use(
     } else {
       console.log(`[API] Request to ${config.url} without token`);
     }
+
+    // Send the current UI language so the backend resolves translated `name` fields
+    if (config.headers) {
+      config.headers["Accept-Language"] = i18n.language || "ar";
+    }
+
     return config;
   },
   (error) => Promise.reject(error),
