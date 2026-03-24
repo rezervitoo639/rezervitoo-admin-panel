@@ -34,7 +34,7 @@ const ResourcesListFeature = forwardRef<
   ResourcesListRef,
   ResourcesListFeatureProps
 >(({ resourceType }, ref) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [editingItem, setEditingItem] = useState<Resource | null>(null);
 
@@ -57,6 +57,12 @@ const ResourcesListFeature = forwardRef<
       beds: "resources.labels.bedType",
     };
     return t(keys[resourceType]);
+  };
+
+  const getLocalizedName = (item: Resource): string => {
+    if (i18n.language === "ar") return item.name_ar || item.name_en || item.name;
+    if (i18n.language === "fr") return item.name_fr || item.name_en || item.name;
+    return item.name_en || item.name;
   };
 
   const handleOpenModal = (item?: Resource) => {
@@ -152,7 +158,7 @@ const ResourcesListFeature = forwardRef<
                   </div>
                 )}
                 <div className={styles.cardInfo}>
-                  <h3 className={styles.cardTitle}>{item.name_en || item.name}</h3>
+                  <h3 className={styles.cardTitle}>{getLocalizedName(item)}</h3>
                   <p className="entity-id">ID: {item.id}</p>
                 </div>
               </div>
@@ -166,7 +172,7 @@ const ResourcesListFeature = forwardRef<
                 </button>
                 <button
                   className={styles.deleteButton}
-                  onClick={() => handleDelete(item.id, item.name_en || item.name)}
+                  onClick={() => handleDelete(item.id, getLocalizedName(item))}
                   title="Delete"
                 >
                   <IconTrash size={18} />
