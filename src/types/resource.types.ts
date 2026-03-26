@@ -1,6 +1,6 @@
 export interface Amenity {
   id: number;
-  name: string;        // language-resolved display name (read-only from API)
+  name: string; // language-resolved display name (read-only from API)
   name_en: string;
   name_ar: string | null;
   name_fr: string | null;

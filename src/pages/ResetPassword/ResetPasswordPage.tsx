@@ -77,7 +77,10 @@ const ResetPasswordPage = () => {
             This password reset link is invalid. Please request a new one.
           </p>
           <div className={styles.actions}>
-            <button onClick={() => navigate("/login")} className={styles.button}>
+            <button
+              onClick={() => navigate("/login")}
+              className={styles.button}
+            >
               Back to Login
             </button>
           </div>

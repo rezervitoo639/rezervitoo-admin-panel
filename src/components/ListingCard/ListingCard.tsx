@@ -31,7 +31,13 @@ export default function ListingCard({ listing, onClick }: ListingCardProps) {
           alt={listing.title}
         />
         <span className={`${styles.status} ${getStatusClass()}`}>
-          {({ APPROVED: t("listings.approved"), PENDING: t("common.pending"), REJECTED: t("common.rejected") } as Record<string, string>)[listing.approval_status] ?? listing.approval_status}
+          {(
+            {
+              APPROVED: t("listings.approved"),
+              PENDING: t("common.pending"),
+              REJECTED: t("common.rejected"),
+            } as Record<string, string>
+          )[listing.approval_status] ?? listing.approval_status}
         </span>
       </div>
       <div className={styles.content}>

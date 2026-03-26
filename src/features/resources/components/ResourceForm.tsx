@@ -58,7 +58,9 @@ export default function ResourceForm({
           id="name_en"
           type="text"
           value={formData.name_en}
-          onChange={(e) => setFormData({ ...formData, name_en: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, name_en: e.target.value })
+          }
           className={styles.input}
           required
           placeholder={t("resources.form.nameEnPlaceholder")}
@@ -73,7 +75,9 @@ export default function ResourceForm({
           id="name_ar"
           type="text"
           value={formData.name_ar}
-          onChange={(e) => setFormData({ ...formData, name_ar: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, name_ar: e.target.value })
+          }
           className={styles.input}
           placeholder={t("resources.form.nameArPlaceholder")}
           dir="rtl"
@@ -88,7 +92,9 @@ export default function ResourceForm({
           id="name_fr"
           type="text"
           value={formData.name_fr}
-          onChange={(e) => setFormData({ ...formData, name_fr: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, name_fr: e.target.value })
+          }
           className={styles.input}
           placeholder={t("resources.form.nameFrPlaceholder")}
         />

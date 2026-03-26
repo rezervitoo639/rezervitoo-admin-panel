@@ -60,8 +60,10 @@ const ResourcesListFeature = forwardRef<
   };
 
   const getLocalizedName = (item: Resource): string => {
-    if (i18n.language === "ar") return item.name_ar || item.name_en || item.name;
-    if (i18n.language === "fr") return item.name_fr || item.name_en || item.name;
+    if (i18n.language === "ar")
+      return item.name_ar || item.name_en || item.name;
+    if (i18n.language === "fr")
+      return item.name_fr || item.name_en || item.name;
     return item.name_en || item.name;
   };
 
@@ -95,7 +97,7 @@ const ResourcesListFeature = forwardRef<
               color: "red",
             });
           },
-        }
+        },
       );
     } else {
       createMutation.mutate(data, {
@@ -145,7 +147,11 @@ const ResourcesListFeature = forwardRef<
     <>
       {resources.length === 0 ? (
         <div className={styles.empty}>
-          <p>{t("resources.form.noItems", { type: t(`resources.tabs.${resourceType}`) })}</p>
+          <p>
+            {t("resources.form.noItems", {
+              type: t(`resources.tabs.${resourceType}`),
+            })}
+          </p>
         </div>
       ) : (
         <div className={styles.grid}>

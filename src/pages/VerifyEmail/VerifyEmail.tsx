@@ -24,15 +24,12 @@ const VerifyEmail = () => {
         </p>
 
         <p className={styles.message}>
-          The code expires in <strong>10 minutes</strong>. If you didn't
-          receive it, request a new code from the app.
+          The code expires in <strong>10 minutes</strong>. If you didn't receive
+          it, request a new code from the app.
         </p>
 
         <div className={styles.actions}>
-          <button
-            onClick={() => navigate("/login")}
-            className={styles.button}
-          >
+          <button onClick={() => navigate("/login")} className={styles.button}>
             Back to Login
           </button>
         </div>

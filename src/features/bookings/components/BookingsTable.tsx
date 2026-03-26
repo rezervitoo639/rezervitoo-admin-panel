@@ -38,9 +38,9 @@ export default function BookingsTable({
             render: (booking: Booking) => (
               <div>
                 <div className="entity-title">
-                  {booking.guest_name || `User #${booking.user}`}
+                  {booking.guest_details?.name || `User #${booking.guest_details?.id}`}
                 </div>
-                <div className="entity-id">ID: {booking.user}</div>
+                <div className="entity-id">ID: {booking.guest_details?.id}</div>
               </div>
             ),
           },

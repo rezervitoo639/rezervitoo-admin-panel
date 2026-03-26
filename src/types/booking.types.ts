@@ -7,7 +7,6 @@ export type BookingStatus =
 
 export interface Booking {
   id: number;
-  user: number;
   listing: number;
   schedule?: number | null; // For package bookings
   start_date: string | null; // Nullable for packages
@@ -25,7 +24,13 @@ export interface Booking {
     price?: string; // For accommodations
   };
   // Flat fields for table display
-  guest_name?: string;
+  guest_details?: {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    pfp: string | null;
+  };
   listing_title?: string;
   created_at: string;
   updated_at: string;

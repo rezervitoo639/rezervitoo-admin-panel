@@ -443,10 +443,7 @@ export default function SettingsPage() {
                       {t("settings.support.tiktok")}
                     </label>
                     <div className={styles.inputWithIcon}>
-                      <IconBrandTiktok
-                        size={20}
-                        className={styles.inputIcon}
-                      />
+                      <IconBrandTiktok size={20} className={styles.inputIcon} />
                       <input
                         type="url"
                         className={styles.input}
