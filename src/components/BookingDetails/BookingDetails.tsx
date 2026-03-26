@@ -1,32 +1,42 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
-import { IconCalendar, IconUser } from "@tabler/icons-react";
+import { IconCalendar } from "@tabler/icons-react";
 import DetailModal from "../DetailModal/DetailModal";
+import UserDetails from "../UserDetails/UserDetails.tsx";
 import ListingDetails from "../ListingDetails/ListingDetails.tsx";
+import ProfileSection from "../ProfileSection/ProfileSection.tsx";
 import ListingCard from "../ListingCard/ListingCard.tsx";
 import RoleBadge from "../RoleBadge/RoleBadge.tsx";
 import StatusBadge from "../StatusBadge/StatusBadge.tsx";
 import { listingsApi } from "../../api/listings.api";
+import { usersApi } from "../../api/users.api";
 import type { Booking } from "../../types/booking.types";
+import type { User } from "../../types/user.types";
 import type { Listing } from "../../types/listing.types";
 import styles from "./BookingDetails.module.css";
 
 interface BookingDetailsProps {
   booking: Booking | null;
   onClose: () => void;
-  getStatusClass: (status: string) => string;
   elevatedZIndex?: boolean;
 }
 
 export default function BookingDetails({
   booking,
   onClose,
-  getStatusClass,
   elevatedZIndex = false,
 }: BookingDetailsProps) {
   const { t } = useTranslation();
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
+
+  // Fetch guest user details
+  const { data: user } = useQuery({
+    queryKey: ["user", booking?.guest_details?.id],
+    queryFn: () => usersApi.getById(booking!.guest_details!.id),
+    enabled: !!booking?.guest_details?.id,
+  });
 
   // Fetch listing details
   const { data: listing } = useQuery({
@@ -132,29 +142,12 @@ export default function BookingDetails({
           </div>
 
           {/* Guest Information */}
-          {booking.guest_details && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <IconUser size={20} />
-                <h3>{t("bookings.guestInformation")}</h3>
-              </div>
-              <div className={styles.profileWidget}>
-                <div className={styles.avatar}>
-                  {booking.guest_details.pfp ? (
-                    <img src={booking.guest_details.pfp} alt={booking.guest_details.name} />
-                  ) : (
-                    <span>{booking.guest_details.name?.[0]?.toUpperCase() ?? "G"}</span>
-                  )}
-                </div>
-                <div className={styles.profileInfo}>
-                  <p className={styles.profileName}>{booking.guest_details.name}</p>
-                  <p className={styles.label}>{booking.guest_details.email}</p>
-                  {booking.guest_details.phone && (
-                    <p className={styles.label}>{booking.guest_details.phone}</p>
-                  )}
-                </div>
-              </div>
-            </div>
+          {user && (
+            <ProfileSection
+              user={user}
+              onClick={() => setSelectedUser(user)}
+              title={t("bookings.guestInformation")}
+            />
           )}
 
           {/* Listing Information */}
@@ -171,6 +164,12 @@ export default function BookingDetails({
           )}
         </div>
       </DetailModal>
+      {selectedUser && (
+        <UserDetails
+          user={selectedUser}
+          onClose={() => setSelectedUser(null)}
+        />
+      )}
       {selectedListing && (
         <ListingDetails
           listing={selectedListing}
